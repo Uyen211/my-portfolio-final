@@ -98,7 +98,7 @@ function showSkills(skills) {
         // Kiểm tra skill.icon có phải URL không
         let iconSrc = skill.icon.startsWith("http") 
             ? skill.icon 
-            : `/assets/images/skills/${skill.icon}.png`;
+            : `./assets/images/skills/${skill.icon}.png`;
 
         skillHTML += `
         <div class="bar">
@@ -119,7 +119,7 @@ function showProjects(projects) {
     projects.slice(0, 10).filter(project => project.category != "android").forEach(project => {
         projectHTML += `
         <div class="box tilt">
-      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
+      <img draggable="false" src="./assets/images/projects/${project.image}.png" alt="project" />
       <div class="content">
         <div class="tag">
         <h3>${project.name}</h3>
