@@ -215,11 +215,11 @@ header .navbar ul li a:hover {
   width: 70%;
   margin-left: 6rem;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
 .home .image img:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 .home .content h2 {
   font-size: 5rem;
@@ -491,6 +491,14 @@ header .navbar ul li a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   background: rgba(0, 0, 22, 0.9);
   transition: 0.2s;
+}
+/* CSS cho ảnh trong .skills .bar .info */
+.skills .bar .info img {
+    width: 48px;        /* chiều rộng tối đa */
+    height: 48px;       /* chiều cao tối đa */
+    object-fit: contain; /* giữ tỷ lệ ảnh, không méo */
+    display: block;
+    margin: 0 auto;     /* căn giữa ảnh */
 }
 .skills .container .bar:hover {
   box-shadow: 0 8px 10px rgba(0, 2, 68, 0.8) !important;

@@ -59,7 +59,7 @@ $(document).ready(function () {
 document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
-            document.title = "Portfolio | Jigar Sable";
+            document.title = "Portfolio | Nguyễn Hà Phương Uyên";
             $("#favicon").attr("href", "assets/images/favicon.png");
         }
         else {
@@ -71,12 +71,14 @@ document.addEventListener('visibilitychange',
 
 // <!-- typed js effect starts -->
 var typed = new Typed(".typing-text", {
-    strings: ["frontend development", "backend development", "web designing", "android development", "web development"],
+    strings: ["AI Engineer"],
     loop: true,
-    typeSpeed: 50,
-    backSpeed: 25,
-    backDelay: 500,
+    typeSpeed: 300,   // gõ từng ký tự chậm hơn
+    backSpeed: 150,   // xóa ký tự chậm hơn
+    backDelay: 1000,  // delay trước khi xóa
+    startDelay: 500   // delay trước khi bắt đầu gõ
 });
+
 // <!-- typed js effect ends -->
 
 async function fetchData(type = "skills") {
@@ -88,21 +90,28 @@ async function fetchData(type = "skills") {
     const data = await response.json();
     return data;
 }
-
 function showSkills(skills) {
     let skillsContainer = document.getElementById("skillsContainer");
     let skillHTML = "";
+
     skills.forEach(skill => {
+        // Kiểm tra skill.icon có phải URL không
+        let iconSrc = skill.icon.startsWith("http") 
+            ? skill.icon 
+            : `/assets/images/skills/${skill.icon}.png`;
+
         skillHTML += `
         <div class="bar">
-              <div class="info">
-                <img src=${skill.icon} alt="skill" />
+            <div class="info">
+                <img src="${iconSrc}" alt="${skill.name}" />
                 <span>${skill.name}</span>
-              </div>
-            </div>`
+            </div>
+        </div>`;
     });
+
     skillsContainer.innerHTML = skillHTML;
 }
+
 
 function showProjects(projects) {
     let projectsContainer = document.querySelector("#work .box-container");
